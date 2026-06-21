@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bb体育 · 知识库入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f2f4f6;
+            color: #1e2a3a;
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* header / hero 区 */
+        .hero {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+            padding: 2.5rem 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #e6eaef;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 550;
+            letter-spacing: -0.01em;
+            color: #0f1a2b;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #4b5b6b;
+            border-left: 4px solid #8499b3;
+            padding-left: 1rem;
+            margin-top: 0.5rem;
+            max-width: 680px;
+        }
+
+        /* 卡片网格 —— 目录感布局 */
+        .grid-directory {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.8rem 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e2e7ed;
+            transition: box-shadow 0.2s ease, transform 0.1s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .card .card-icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.6rem;
+            display: block;
+            opacity: 0.7;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 550;
+            margin-bottom: 0.75rem;
+            color: #1c2a3c;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #3e4d5e;
+            margin-bottom: 0.5rem;
+        }
+
+        .card .meta-tag {
+            display: inline-block;
+            background: #eef2f7;
+            border-radius: 30px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.75rem;
+            color: #3b4d62;
+            margin-top: 0.6rem;
+            border: 1px solid #dce2ea;
+        }
+
+        /* 说明区 */
+        .explain-block {
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid #e0e6ed;
+            padding: 2rem 2rem 2.2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+        }
+
+        .explain-block h2 {
+            font-size: 1.6rem;
+            font-weight: 540;
+            margin-bottom: 1.2rem;
+            color: #0f1a2b;
+        }
+
+        .explain-block .link-sentence {
+            background: #f6f8fb;
+            padding: 0.9rem 1.2rem;
+            border-radius: 12px;
+            border-left: 4px solid #778da0;
+            margin: 1.2rem 0 0.8rem;
+            font-size: 1rem;
+        }
+
+        .explain-block a,
+        .card a {
+            color: #1f5292;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #b0c4d9;
+        }
+
+        .explain-block a:hover,
+        .card a:hover {
+            border-bottom: 2px solid #1f5292;
+        }
+
+        .explain-block ul {
+            padding-left: 1.4rem;
+            margin: 0.8rem 0;
+        }
+
+        .explain-block li {
+            margin-bottom: 0.4rem;
+            color: #233546;
+        }
+
+        /* 提示区 */
+        .tip-area {
+            background: #f8fafd;
+            border-radius: 18px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #dbe1e9;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .tip-area .tip-label {
+            background: #d2dce8;
+            color: #1b2b3e;
+            font-weight: 550;
+            font-size: 0.8rem;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+        }
+
+        .tip-area .tip-content {
+            flex: 1;
+            min-width: 200px;
+            color: #2a3c4f;
+        }
+
+        .tip-area .tip-content p {
+            margin-bottom: 0.3rem;
+        }
+
+        .tip-area .tip-content .small-note {
+            font-size: 0.85rem;
+            color: #5b6d80;
+            margin-top: 0.25rem;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid #e3e9f0;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .faq-summary h2 {
+            font-size: 1.4rem;
+            font-weight: 530;
+            margin-bottom: 1.2rem;
+            color: #0f1a2b;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e9edf2;
+            padding: 0.8rem 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 550;
+            color: #1c2b3d;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-a {
+            color: #3b4d60;
+            font-size: 0.95rem;
+            padding-left: 0.2rem;
+        }
+
+        /* 相关信息区 */
+        .related-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 1.5rem;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 2rem 2.2rem;
+            border: 1px solid #e3e9f0;
+            margin-bottom: 2rem;
+        }
+
+        .related-info .info-block {
+            flex: 1 1 180px;
+        }
+
+        .related-info h4 {
+            font-weight: 540;
+            font-size: 1rem;
+            color: #1b2b3e;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid #dce2ea;
+            padding-bottom: 0.3rem;
+        }
+
+        .related-info ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .related-info li {
+            padding: 0.2rem 0;
+            color: #35485c;
+            font-size: 0.9rem;
+        }
+
+        .related-info .badge {
+            background: #eef2f7;
+            border-radius: 30px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.7rem;
+            color: #1f354b;
+            display: inline-block;
+            margin-right: 0.4rem;
+        }
+
+        /* footer */
+        .page-footer {
+            text-align: center;
+            color: #6e8094;
+            font-size: 0.75rem;
+            border-top: 1px solid #d7dee6;
+            padding-top: 1.5rem;
+            margin-top: 1rem;
+            letter-spacing: 0.2px;
+        }
+
+        /* 响应式微调 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1.2rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero {
+                padding: 1.8rem 1.2rem;
+            }
+
+            .explain-block,
+            .faq-summary,
+            .related-info,
+            .tip-area {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .grid-directory {
+                grid-template-columns: 1fr;
+            }
+
+            .related-info {
+                flex-direction: column;
+                gap: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- hero 区 -->
+        <div class="hero">
+            <h1>bb体育 · 知识库入口</h1>
+            <div class="sub">一份结构化的页面说明与稳定访问索引，帮助了解服务框架与常见信息。</div>
+        </div>
+
+        <!-- 目录感卡片网格 -->
+        <div class="grid-directory">
+            <div class="card">
+                <span class="card-icon">📘</span>
+                <h3>平台概述</h3>
+                <p>围绕体育资讯与数据服务的综合入口，提供赛事动态与相关内容聚合。</p>
+                <span class="meta-tag">内容聚合</span>
+            </div>
+            <div class="card">
+                <span class="card-icon">🧩</span>
+                <h3>模块说明</h3>
+                <p>页面结构包含赛事浏览、数据参考、信息提示及常见问题摘要等分区。</p>
+                <span class="meta-tag">结构参考</span>
+            </div>
+            <div class="card">
+                <span class="card-icon">🔗</span>
+                <h3>稳定入口</h3>
+                <p>主要访问地址为 <a href="https://m-bb-sports.com">bb体育</a>，建议通过书签或直达链接访问。</p>
+                <span class="meta-tag">直达链接</span>
+            </div>
+            <div class="card">
+                <span class="card-icon">📋</span>
+                <h3>内容索引</h3>
+                <p>下方分区包含说明、提示、FAQ 与相关信息，可快速定位关注点。</p>
+                <span class="meta-tag">页面导航</span>
+            </div>
+        </div>
+
+        <!-- 说明区 -->
+        <div class="explain-block">
+            <h2>页面说明</h2>
+            <p>本页作为知识库风格的介绍界面，用于整理 <a href="https://m-bb-sports.com">bb体育</a> 相关的基本信息与常见参考点。所有内容均基于公开可描述的常规服务框架，不包含内部细节或非公开数据。</p>
+            <div class="link-sentence">
+                💡 如需直接访问服务页面，可使用链接 <a href="https://m-bb-sports.com">bb体育</a>（建议使用现代浏览器）。
+            </div>
+            <ul>
+                <li>信息分区：卡片概述、说明区、提示区、FAQ 摘要、相关信息。</li>
+                <li>内容定位：帮助新访问者快速理解页面结构与可用资源。</li>
+                <li>任何具体服务条款以实际页面公示为准。</li>
+            </ul>
+        </div>
+
+        <!-- 提示区 -->
+        <div class="tip-area">
+            <span class="tip-label">📌 提示</span>
+            <div class="tip-content">
+                <p><strong>关于访问稳定性</strong>：建议将 <a href="https://m-bb-sports.com">bb体育</a> 加入浏览器书签，并确保网络环境正常。如遇临时调整，可通过已知的备用路径或刷新重试。</p>
+                <p class="small-note">本页仅作为信息介绍，不构成任何服务承诺。页面内容会随实际更新而调整。</p>
+            </div>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-summary">
+            <h2>常见问题摘要</h2>
+            <div class="faq-item">
+                <div class="faq-q">❓ 这个页面主要提供什么？</div>
+                <div class="faq-a">一份关于 bb体育 的知识库式说明，包含结构化的模块介绍、访问提示以及相关信息汇总。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">❓ 如何快速访问主服务？</div>
+                <div class="faq-a">直接使用链接 <a href="https://m-bb-sports.com">bb体育</a>。建议在稳定网络下直接打开。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">❓ 信息会经常变化吗？</div>
+                <div class="faq-a">页面结构相对稳定，但具体内容会根据服务发展不定期更新。请以实际页面为准。</div>
+            </div>
+        </div>
+
+        <!-- 相关信息区 -->
+        <div class="related-info">
+            <div class="info-block">
+                <h4>相关参考</h4>
+                <ul>
+                    <li><span class="badge">指南</span> 页面使用说明</li>
+                    <li><span class="badge">索引</span> 模块分类概述</li>
+                    <li><span class="badge">提示</span> 常见访问场景</li>
+                </ul>
+            </div>
+            <div class="info-block">
+                <h4>内容分类</h4>
+                <ul>
+                    <li>赛事资讯 · 数据参考</li>
+                    <li>功能指引 · 界面说明</li>
+                    <li>稳定入口 · 知识整理</li>
+                </ul>
+            </div>
+            <div class="info-block">
+                <h4>服务链接</h4>
+                <ul>
+                    <li><a href="https://m-bb-sports.com">bb体育</a> — 主站</li>
+                    <li>（其他参考以实际页面为准）</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <div class="page-footer">
+            知识库入口 · 信息介绍页面 · 内容定期整理
+        </div>
+    </div>
+</body>
+</html>
