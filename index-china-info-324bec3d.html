@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信息索引 · MK体育 · 资料整理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f7f5f2;
+            font-family: system-ui, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            color: #2c2b28;
+            line-height: 1.7;
+            padding: 2.5rem 1.2rem;
+        }
+
+        .narrow-reader {
+            max-width: 680px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 3rem 2.2rem;
+            border-radius: 28px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02), 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        h1 {
+            font-weight: 460;
+            font-size: 2.2rem;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.4rem;
+            color: #1f1e1c;
+            line-height: 1.2;
+        }
+
+        .subhead {
+            font-size: 1rem;
+            color: #6f6b65;
+            border-left: 3px solid #c9b99a;
+            padding-left: 1rem;
+            margin: 0.8rem 0 2rem 0;
+            font-style: normal;
+        }
+
+        .essay-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            letter-spacing: 0.06em;
+            color: #7a6f5d;
+            background: #efebe6;
+            padding: 0.2rem 0.9rem;
+            border-radius: 40px;
+            margin-bottom: 1.8rem;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-weight: 440;
+            font-size: 1.4rem;
+            margin: 2.4rem 0 0.8rem 0;
+            color: #2c2924;
+            border-bottom: 1px solid #e7e1d9;
+            padding-bottom: 0.3rem;
+        }
+
+        p {
+            margin-bottom: 1.4rem;
+            font-size: 1rem;
+            color: #3b3935;
+        }
+
+        .intro-quote {
+            background: #f3efe9;
+            padding: 1.6rem 2rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            font-style: normal;
+            border-left: 4px solid #b3a187;
+            color: #3f3b33;
+            font-size: 0.98rem;
+        }
+
+        .intro-quote strong {
+            font-weight: 500;
+            color: #2c2720;
+        }
+
+        .insight-callout {
+            background: #faf8f4;
+            padding: 1.2rem 1.6rem;
+            border-radius: 40px 12px 40px 12px;
+            margin: 2rem 0 1.5rem 0;
+            font-size: 0.95rem;
+            border: 1px solid #ded9d0;
+            color: #4b453b;
+        }
+
+        .insight-callout a {
+            color: #3f372c;
+            text-decoration: underline;
+            text-underline-offset: 0.2em;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #b8aa95;
+            font-weight: 450;
+            transition: all 0.15s;
+        }
+
+        .insight-callout a:hover {
+            color: #1f1b14;
+            text-decoration-color: #7f6e55;
+        }
+
+        .regular-link {
+            color: #3f372c;
+            text-decoration: underline;
+            text-underline-offset: 0.2em;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #c5b8a6;
+            font-weight: 450;
+            transition: all 0.15s;
+        }
+
+        .regular-link:hover {
+            color: #1d1914;
+            text-decoration-color: #8a7b66;
+        }
+
+        .faq-mini {
+            margin-top: 2.8rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e7e1d9;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-q {
+            font-weight: 480;
+            font-size: 0.98rem;
+            color: #2c2924;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq-a {
+            font-size: 0.92rem;
+            color: #5b554b;
+            padding-left: 0.2rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #eae4db;
+            margin: 2.6rem 0 1rem 0;
+        }
+
+        .footer-note {
+            font-size: 0.8rem;
+            color: #8b857b;
+            text-align: center;
+            letter-spacing: 0.02em;
+            margin-top: 2.4rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 560px) {
+            body {
+                padding: 1rem 0.6rem;
+            }
+            .narrow-reader {
+                padding: 2rem 1.4rem;
+                border-radius: 18px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .intro-quote {
+                padding: 1.2rem 1.2rem;
+            }
+            .insight-callout {
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="narrow-reader">
+        <span class="essay-tag">资料索引 · 温和整理</span>
+        <h1>从信息流中打捞结构：<br>关于 MK体育 的笔记</h1>
+        <div class="subhead">不追热度，只做梳理 · 一份安静的导览</div>
+
+        <p>过去几年，体育资讯的呈现方式越来越碎片化。推送、短视频、实时比分……信息本身不难获取，难的是在纷杂中找到一条清晰、可回溯的索引路径。这也是我尝试从资料整理的角度，重新面对 <a href="https://index-china-mk.com" class="regular-link">MK体育</a> 这个信息站点的原因——不是作为即时刷新页，而是作为一种可翻阅、可对照的素材库。</p>
+
+        <h2>为什么需要一份索引</h2>
+        <p>许多时候，我们打开一个体育信息页面，只是为了查某个联赛的赛程、某支球队的近期数据，或是回顾一场关键比赛的技术统计。但这类需求往往被淹没在首页的横幅和热门推荐里。<strong>如果有一个地方，能把赛事、队伍、数据项像目录一样列出来</strong>，查找效率会高很多。MK体育 的页面结构偏向于“大而全”，但若能以索引视角重新组织，它完全可以成为一本私人的赛事参考手册。</p>
+
+        <div class="intro-quote">
+            <strong>一个整理者的观察：</strong> 信息密度高的站点，往往需要读者自己建立导航路径。与其被动接收，不如主动标记——把常用联赛、关注的球队、历史交锋数据做成自己的“快速索引卡”，每次访问都像翻阅一本不断更新的手册。
+        </div>
+
+        <p>具体来说，我会建议从三个维度建立自己的索引：<strong>赛事时间线</strong>（按赛季/月份归档）、<strong>队伍档案</strong>（包括近期状态、伤病、交锋记录）以及<strong>数据标签</strong>（进球分布、控球率、红黄牌等）。MK体育 在实时数据更新方面有不错的覆盖度，利用它的结构，可以省去很多手动收集的工夫。</p>
+
+        <h2>从浏览到使用</h2>
+        <p>把资料整理思维带入日常浏览后，我发现页面上的很多模块都可以重新“翻译”成索引条目。比如赛程模块，不只是看下一场对阵，更是查看背靠背赛程、主客场分布的好机会；球员数据页面，可以摘录成自己关注的“状态热区”。这种使用方式让信息不再只是过眼云烟，而是真正沉淀下来。</p>
+
+        <div class="insight-callout">
+            💡 如果你也想尝试这种整理方式，不妨从你的主队开始：把近十场比赛的数据、阵容变化、关键球员表现摘录下来，每周更新一次。在 <a href="https://index-china-mk.com">MK体育</a> 上找到对应页面，用最简单的笔记工具记录，一个月后你会拥有一份属于自己的赛季档案。
+        </div>
+
+        <p>当然，索引不等于冷冰冰的表格。我习惯在每一条数据旁边加一句简短的情境说明，比如“这场控球率虽高但射正少”“客场三连败期间场均失球2.3”。这些注脚让数字重新拥有了故事感。MK体育 提供的数据维度比较全面，恰好适合这种“数据+笔记”的整理方式。</p>
+
+        <h2>常见疑问摘要</h2>
+        <div class="faq-mini">
+            <div class="faq-item">
+                <div class="faq-q">Q：索引整理需要很多时间吗？</div>
+                <div class="faq-a">A：不需要。每周10-15分钟即可，重点是坚持和固定格式。用最简单的文本文件或者笔记应用都可以。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Q：MK体育 的数据更新速度如何？</div>
+                <div class="faq-a">A：根据日常使用体验，实时比分和赛果更新比较及时，历史数据也保留得较为完整，适合做回溯整理。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Q：索引内容可以和朋友共享吗？</div>
+                <div class="faq-a">A：当然可以。整理好的笔记或表格可以截图、导出，甚至做成简单的网页。重要的是建立自己的信息框架。</div>
+            </div>
+        </div>
+
+        <hr>
+        <p style="font-size:0.92rem; color:#4f4940; margin-bottom:0.2rem;">本文是一份资料整理视角的使用笔记，不构成任何建议。站点内容请以实际页面为准。</p>
+        <div class="footer-note">—— 整理于一次安静的查阅 · 索引即思考 ——</div>
+    </div>
+</body>
+</html>
